@@ -1,0 +1,16 @@
+-- [[ wip ]] --
+
+local owner = owner or getfenv(2).owner or game:GetService("Players"):FindFirstChild(script.Name)
+local gsub,HTTP=string.gsub,game:GetService("HttpService")
+local function GUID()
+return gsub(HTTP:GenerateGUID(true),"-","")
+end
+local Remote = Instance.new('RemoteEvent')
+local Mouse = {}
+local Folder = Instance.new("Folder",owner.Character)
+Folder.Name = GUID()
+Remote.Name = "ClientShare".. GUID()
+NLS([==[
+local ClientShare = script.Parent
+
+]==],Remote)
